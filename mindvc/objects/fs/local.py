@@ -187,7 +187,7 @@ class LocalFileSystem(FileSystem):
 
     @cached_property
     def path(self):
-        from .path import Path
+        from ...scmrepo.fs import Path
 
         return Path(self.sep, getcwd=os.getcwd, realpath=os.path.realpath)
 

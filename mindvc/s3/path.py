@@ -2,7 +2,7 @@ from typing import Optional, Tuple
 from urllib.parse import parse_qs, urlencode, urlsplit, urlunsplit
 
 from ..objects.fs.base import AnyFSPath
-from ..objects.fs.path import Path
+from ..scmrepo.fs import Path
 from funcy import first
 
 

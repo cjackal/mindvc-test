@@ -29,7 +29,7 @@ if TYPE_CHECKING:
 
     from fsspec.spec import AbstractFileSystem
 
-    from .path import Path
+    from ...scmrepo.fs import Path
 
 
 logger = logging.getLogger(__name__)
@@ -91,7 +91,7 @@ class FileSystem:
 
     @cached_property
     def path(self) -> "Path":
-        from .path import Path
+        from ...scmrepo.fs import Path
 
         def _getcwd():
             return self.fs.root_marker

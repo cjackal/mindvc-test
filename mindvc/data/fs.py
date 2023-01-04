@@ -20,7 +20,7 @@ class DataFileSystem(AbstractFileSystem):  # pylint:disable=abstract-method
 
     @cached_property
     def path(self):
-        from ..objects.fs.path import Path
+        from ..scmrepo.fs import Path
 
         def _getcwd():
             return self.root_marker
