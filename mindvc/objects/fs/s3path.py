@@ -1,8 +1,8 @@
 from typing import Optional, Tuple
 from urllib.parse import parse_qs, urlencode, urlsplit, urlunsplit
 
-from ..objects.fs.base import AnyFSPath
-from ..scmrepo.fs import Path
+from .base import AnyFSPath
+from ...scmrepo.fs import Path
 from funcy import first
 
 

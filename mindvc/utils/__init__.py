@@ -25,6 +25,13 @@ def relpath(path, start=os.curdir):
     return os.path.relpath(path, start)
 
 
+def as_posix(path: str) -> str:
+    import ntpath
+    import posixpath
+
+    return path.replace(ntpath.sep, posixpath.sep)
+
+
 def env2bool(var, undefined=False):
     """
     undefined: return value if env var is unset

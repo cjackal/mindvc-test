@@ -3,6 +3,7 @@ from typing import TYPE_CHECKING, Iterator, Type
 from urllib.parse import urlparse
 
 from . import generic  # noqa: F401
+from .git import GitFileSystem
 from .local import LocalFileSystem, localfs  # noqa: F401
 from .memory import MemoryFileSystem  # noqa: F401
 from .scheme import Schemes
@@ -16,10 +17,10 @@ if TYPE_CHECKING:
 known_implementations = {
     Schemes.LOCAL: {"class": "mindvc.objects.fs.local.LocalFileSystem"},
     Schemes.MEMORY: {"class": "mindvc.objects.fs.memory.MemoryFileSystem"},
-    Schemes.S3: {
-        "class": "mindvc.s3.S3FileSystem",
-        "err": "s3 is supported, but requires 'dvc-s3' to be installed",
-    },
+    Schemes.HDFS: {"class": "mindvc.objects.fs.hdfs.HDFSFileSystem"},
+    Schemes.S3: {"class": "mindvc.objects.fs.s3.S3FileSystem"},
+    Schemes.WEBHDFS: {"class": "mindvc.objects.fs.hdfs.WebHDFSFileSystem"},
+    "git": {"class": "mindvc.objects.fs.git.GitFileSystem"},
 }
 
 

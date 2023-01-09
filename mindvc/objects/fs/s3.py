@@ -3,11 +3,11 @@ import threading
 from collections import defaultdict
 from typing import Any, Dict
 
-from ..objects.fs.base import ObjectFileSystem
-from ..objects.fs.errors import ConfigError
+from .base import ObjectFileSystem
+from .errors import ConfigError
 from funcy import cached_property, wrap_prop
 
-from .path import S3Path
+from .s3path import S3Path
 
 _AWS_CONFIG_PATH = os.path.join(os.path.expanduser("~"), ".aws", "config")
 
