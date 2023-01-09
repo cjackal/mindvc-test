@@ -199,7 +199,7 @@ class GitFileSystem(AbstractFileSystem):
             scm = scm or Git(path)
             resolver = rev_resolver or Git.resolve_rev
             resolved = resolver(scm, rev or "HEAD")
-            tree_obj = scm.pygit2.get_tree_obj(rev=resolved)
+            tree_obj = scm.get_tree_obj(rev=resolved)
             trie = GitTrie(tree_obj, resolved)
 
         self.trie = trie

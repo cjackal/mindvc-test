@@ -110,14 +110,6 @@ class Git(Base):
     def gitpython(self):
         return self.backends["gitpython"]
 
-    @property
-    def dulwich(self):
-        return self.backends["dulwich"]
-
-    @property
-    def pygit2(self):
-        return self.backends["pygit2"]
-
     @cached_property
     def stash(self):
         return Stash(self)
