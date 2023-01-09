@@ -1,26 +1,15 @@
 """Manages progress bars for DVC repo."""
 import logging
-import os
-import re
 import sys
 from threading import RLock
 
 from tqdm import tqdm
 
 from .env import DVC_IGNORE_ISATTY
+from .utils import env2bool
 
 logger = logging.getLogger(__name__)
 tqdm.set_lock(RLock())
-
-
-def env2bool(var, undefined=False):
-    """
-    undefined: return value if env var is unset
-    """
-    var = os.getenv(var, None)
-    if var is None:
-        return undefined
-    return bool(re.search("1|y|yes|true", var, flags=re.I))
 
 
 class Tqdm(tqdm):
